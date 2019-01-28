@@ -39,11 +39,7 @@ public class LinkedListPractice {
         // reverse the linked list
         Node n = list.head;
 
-        LinkedList reverse = new LinkedList();
-        while(n != null) {
-            reverse.appendToHead(n.data);
-            n = n.next;
-        }
+        LinkedList reverse = list.reverseLinkedList();
 
         Node reverseNode = reverse.head;
         Node originalNode = list.head;
@@ -54,27 +50,28 @@ public class LinkedListPractice {
             reverseNode = reverseNode.next;
             originalNode = originalNode.next;
         }
-
         return true;
     }
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
+        list.appendToTail(1);
+        list.appendToTail(2);
         list.appendToTail(3);
+        list.appendToTail(4);
         list.appendToTail(5);
-        list.appendToTail(8);
-        list.appendToTail(5);
-        list.appendToTail(10);
+        list.appendToTail(4);
+        list.appendToTail(3);
         list.appendToTail(2);
         list.appendToTail(1);
-        list.appendToTail(10);
-        list.appendToTail(2);
-        list.appendToTail(10);
+//        list.appendToTail(10);
 
+        list.printLinkedList();
         LinkedList reversedLinkedList = list.reverseLinkedList();
         reversedLinkedList.printLinkedList();
+        System.out.println();
 
-        list.partitionLinkedList(5);
+        list.partitionLinkedList(3);
 
         LinkedList left = new LinkedList();
         left.appendToTail(7);
@@ -88,12 +85,12 @@ public class LinkedListPractice {
         right.appendToTail(2);
         right.appendToTail(7);
 
-        System.out.println("");
+        System.out.println();
         left.printLinkedList();
         right.printLinkedList();
         addTwoLinkedLists(left, right);
 
-        System.out.println("");
+        System.out.println();
         boolean isPaladrome = checkPalindrome(list);
         if(isPaladrome) {
             System.out.println("linked list IS a palindrome");

@@ -54,7 +54,7 @@ public class LinkedList {
             }
             cur = cur.next;
         }
-        System.out.println("");
+        System.out.println();
     }
 
     public LinkedList mergeLinkedLists(LinkedList left, LinkedList right) {
