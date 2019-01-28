@@ -18,7 +18,7 @@ public class LinkedList {
         }
     }
 
-    public void appendToHead(int d) {
+    public void prependToHead(int d) {
         Node temp = new Node(d);
 
         if(head == null) {
@@ -37,7 +37,7 @@ public class LinkedList {
 
         LinkedList reverse = new LinkedList();
         while(n != null) {
-            reverse.appendToHead(n.data);
+            reverse.prependToHead(n.data);
             n = n.next;
         }
         return reverse;
