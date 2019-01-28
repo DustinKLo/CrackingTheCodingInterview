@@ -35,6 +35,29 @@ public class LinkedListPractice {
         System.out.println(ans);
     }
 
+    public static boolean checkPalindrome(LinkedList list) {
+        // reverse the linked list
+        Node n = list.head;
+
+        LinkedList reverse = new LinkedList();
+        while(n != null) {
+            reverse.appendToHead(n.data);
+            n = n.next;
+        }
+
+        Node reverseNode = reverse.head;
+        Node originalNode = list.head;
+        while(reverseNode != null) {
+            if(reverseNode.data != originalNode.data) {
+                return false;
+            }
+            reverseNode = reverseNode.next;
+            originalNode = originalNode.next;
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         list.appendToTail(3);
@@ -48,7 +71,8 @@ public class LinkedListPractice {
         list.appendToTail(2);
         list.appendToTail(10);
 
-//        list.printLinkedList();
+        LinkedList reversedLinkedList = list.reverseLinkedList();
+        reversedLinkedList.printLinkedList();
 
         list.partitionLinkedList(5);
 
@@ -68,5 +92,13 @@ public class LinkedListPractice {
         left.printLinkedList();
         right.printLinkedList();
         addTwoLinkedLists(left, right);
+
+        System.out.println("");
+        boolean isPaladrome = checkPalindrome(list);
+        if(isPaladrome) {
+            System.out.println("linked list IS a palindrome");
+        } else {
+            System.out.println("linked list IS NOT a palindrome");
+        }
     }
 }

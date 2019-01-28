@@ -18,6 +18,31 @@ public class LinkedList {
         }
     }
 
+    public void appendToHead(int d) {
+        Node temp = new Node(d);
+
+        if(head == null) {
+            head = temp;
+            head.next = tail;
+            tail = head;
+        } else {
+            temp.next = head;
+            head = temp;
+        }
+    }
+
+    public LinkedList reverseLinkedList() {
+        // reverse the linked list
+        Node n = this.head;
+
+        LinkedList reverse = new LinkedList();
+        while(n != null) {
+            reverse.appendToHead(n.data);
+            n = n.next;
+        }
+        return reverse;
+    }
+
     public void printLinkedList() {
         Node cur = head;
         while(cur != null) {
