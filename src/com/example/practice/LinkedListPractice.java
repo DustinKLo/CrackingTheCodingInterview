@@ -97,5 +97,17 @@ public class LinkedListPractice {
         } else {
             System.out.println("linked list IS NOT a palindrome");
         }
+
+        LinkedList list2 = new LinkedList();
+        list2.appendToTail(1);
+        list2.appendToTail(2);
+        list2.appendToTail(3);
+        list2.appendToTail(4);
+        list2.appendToTail(5);
+        list2.printLinkedList();
+        list2.reverseLinkedListPerm();
+        list2.printLinkedList();
+        list2.reverseLinkedListPerm();
+        list2.printLinkedList();
     }
 }

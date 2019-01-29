@@ -43,6 +43,27 @@ public class LinkedList {
         return reverse;
     }
 
+    public Node reverseLinkedListPerm() {
+        if(head == null || head.next == null) {
+            return head; // linked list of length 1
+        }
+
+        Node prev = head;
+        Node cur = head.next;
+        prev.next = null;
+
+        while(cur != null) {
+            Node temp = cur.next;
+            cur.next = prev;
+
+            prev = cur;
+            cur = temp;
+        }
+        head = prev;
+        return head;
+
+    }
+
     public void printLinkedList() {
         Node cur = head;
         while(cur != null) {
