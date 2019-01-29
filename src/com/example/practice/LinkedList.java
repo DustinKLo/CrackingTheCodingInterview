@@ -122,7 +122,7 @@ public class LinkedList {
         return true;
     }
 
-    public static void addTwoLinkedLists(LinkedList left, LinkedList right) {
+    public static int addTwoLinkedLists(LinkedList left, LinkedList right) {
         Node leftCur = left.head;
         Node rightCur = right.head;
 
@@ -154,5 +154,6 @@ public class LinkedList {
             }
         }
         System.out.println(ans);
+        return ans;
     }
 }
