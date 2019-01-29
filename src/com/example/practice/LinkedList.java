@@ -43,9 +43,9 @@ public class LinkedList {
         return reverse;
     }
 
-    public Node reverseLinkedListPerm() {
+    public void reverseLinkedListPerm() {
         if(head == null || head.next == null) {
-            return head; // linked list of length 1
+            return; // linked list of length 1
         }
 
         Node prev = head;
@@ -61,7 +61,7 @@ public class LinkedList {
             cur = temp;
         }
         head = prev;
-        return head;
+        return;
 
     }
 
