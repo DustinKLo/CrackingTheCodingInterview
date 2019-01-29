@@ -51,6 +51,7 @@ public class LinkedList {
         Node prev = head;
         Node cur = head.next;
         prev.next = null;
+        tail = prev;
 
         while(cur != null) {
             Node temp = cur.next;
