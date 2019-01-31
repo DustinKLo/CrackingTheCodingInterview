@@ -1,8 +1,15 @@
 package com.example.practice;
 
+import java.util.*;
+import java.util.Random;
+
+
 public class LinkedList {
     Node head = null;
     Node tail = null;
+
+    ArrayList<Node> cache = new ArrayList<Node>();
+    int cacheSize;
 
     public void appendToTail(int d) { // add node to end of linkedlist
         Node temp = new Node(d);
@@ -15,6 +22,8 @@ public class LinkedList {
             tail.next = temp; // making new node as the new tail
             tail = tail.next; // giving the new node the title as tail
         }
+        cache.add(temp);
+        cacheSize++;
     }
 
     public void prependToHead(int d) {
@@ -28,6 +37,8 @@ public class LinkedList {
             temp.next = head;
             head = temp;
         }
+        cache.add(temp);
+        cacheSize++;
     }
 
     public LinkedList reverseLinkedList() {
@@ -155,5 +166,24 @@ public class LinkedList {
         }
         System.out.println(ans);
         return ans;
+    }
+
+    public int getCacheSize() {
+//        System.out.println(cacheSize);
+        return cacheSize;
+    }
+
+    public void pointRandom() {
+        int randomCacheIndex = (int)(Math.random() * this.getCacheSize() - 1);
+        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
+        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
+        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
+        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
+        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
+        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
+        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
+        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
+        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
+        return;
     }
 }

@@ -1,4 +1,5 @@
 package com.example.practice;
+import java.util.*;
 
 public class LinkedListPractice {
 
@@ -77,5 +78,17 @@ public class LinkedListPractice {
                 "                        ^\n" +
                 "                        |\n" +
                 "      10-> 11->  12 ----|");
+
+
+        System.out.println();
+        LinkedList list3 = new LinkedList();
+        list3.appendToTail(1);
+        list3.appendToTail(2);
+        list3.appendToTail(3);
+        list3.appendToTail(4);
+        list3.appendToTail(5);
+//        list3.printLinkedList();
+//        list3.getCacheSize();
+        list3.pointRandom();
     }
 }
