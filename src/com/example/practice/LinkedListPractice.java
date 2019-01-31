@@ -72,7 +72,7 @@ public class LinkedListPractice {
         Node a1 = new Node(10);
         Node a2 = new Node(11); a1.appentTail(a2);
         Node a3 = new Node(12); a2.appentTail(a3);
-        a3.appentTail(n5);
+        a3.appentTail(n7);
 
         System.out.println("1 ->  2 ->  3 ->  4 ->  5 ->  6 -> 7\n" +
                 "                        ^\n" +

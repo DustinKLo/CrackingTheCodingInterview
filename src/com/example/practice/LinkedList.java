@@ -167,11 +167,11 @@ public class LinkedList {
 
         while(cur1 != null || cur2 != null) {
 
-            if(cur1.next == null) {
+            if(cur1.next == null && cur1 != cur2) {
                 System.out.println("Linked List 1 finished");
                 cur1 = head2;
             }
-            if(cur2.next == null) {
+            if(cur2.next == null && cur1 != cur2) {
                 System.out.println("Linked List 2 finished");
                 cur2 = head1;
             }
