@@ -8,9 +8,6 @@ public class LinkedList {
     Node head = null;
     Node tail = null;
 
-    ArrayList<Node> cache = new ArrayList<Node>();
-    int cacheSize;
-
     public void appendToTail(int d) { // add node to end of linkedlist
         Node temp = new Node(d);
 
@@ -22,8 +19,6 @@ public class LinkedList {
             tail.next = temp; // making new node as the new tail
             tail = tail.next; // giving the new node the title as tail
         }
-        cache.add(temp);
-        cacheSize++;
     }
 
     public void prependToHead(int d) {
@@ -37,8 +32,6 @@ public class LinkedList {
             temp.next = head;
             head = temp;
         }
-        cache.add(temp);
-        cacheSize++;
     }
 
     public LinkedList reverseLinkedList() {
@@ -168,22 +161,31 @@ public class LinkedList {
         return ans;
     }
 
-    public int getCacheSize() {
-//        System.out.println(cacheSize);
-        return cacheSize;
-    }
+    public static Node findIntersection(Node node1, Node node2) {
+        Node head1 = node1; Node cur1 = node1;
+        Node head2 = node2; Node cur2 = node2;
 
-    public void pointRandom() {
-        int randomCacheIndex = (int)(Math.random() * this.getCacheSize() - 1);
-        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
-        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
-        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
-        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
-        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
-        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
-        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
-        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
-        System.out.println(cache.get((int)(Math.random() * this.getCacheSize())).data);
-        return;
+        while(cur1 != null || cur2 != null) {
+
+            if(cur1.next == null) {
+                System.out.println("Node1 finished");
+                cur1 = head2;
+            }
+            if(cur2.next == null) {
+                System.out.println("Node2 finished");
+                cur2 = head1;
+            }
+
+            if(cur1 == cur2) {
+                System.out.println(cur1.data);
+                System.out.println(cur2.data);
+                break;
+            }
+
+            cur1 = cur1.next;
+            cur2 = cur2.next;
+        }
+
+        return new Node(0);
     }
 }
