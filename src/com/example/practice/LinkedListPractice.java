@@ -79,6 +79,7 @@ public class LinkedListPractice {
                 "                        |\n" +
                 "      10-> 11->  12 ----|");
 
+        System.out.println();
         LinkedList.findIntersection(n1, a1);
     }
 }

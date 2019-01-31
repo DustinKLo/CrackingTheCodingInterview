@@ -168,17 +168,16 @@ public class LinkedList {
         while(cur1 != null || cur2 != null) {
 
             if(cur1.next == null) {
-                System.out.println("Node1 finished");
+                System.out.println("Linked List 1 finished");
                 cur1 = head2;
             }
             if(cur2.next == null) {
-                System.out.println("Node2 finished");
+                System.out.println("Linked List 2 finished");
                 cur2 = head1;
             }
 
             if(cur1 == cur2) {
-                System.out.println(cur1.data);
-                System.out.println(cur2.data);
+                System.out.println("Intersection Node is: " + cur1.data);
                 break;
             }
 
@@ -186,6 +185,6 @@ public class LinkedList {
             cur2 = cur2.next;
         }
 
-        return new Node(0);
+        return cur1;
     }
 }
