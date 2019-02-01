@@ -63,6 +63,40 @@ public class StringsAndArrays {
         return true;
     }
 
+    public static boolean oneAway(String str1, String str2) {
+        int errors = 0;
+        // case 1: the 2 words are the same length (easy case)
+        if(str1.length() == str2.length()) {
+            for(int i = 0; i < str1.length(); i++) {
+                if(str1.charAt(i) != str2.charAt(i)) {
+                    errors++;
+                    if(errors > 1) {
+                        return false;
+                    }
+                }
+            }
+        } else { // case 2: words are different length (harder case)
+            int i = 0; // counter for string 1
+            int j = 0; // counter for string 2
+            while(i < str1.length() && j < str2.length()) {
+                if(str1.charAt(i) != str2.charAt(j)) {
+                    errors++;
+                    if(str1.length() > str2.length()) {
+                        i++; // choose to only advance the longer string
+                    } else {
+                        j++;
+                    }
+                    if(errors > 1) {
+                        return false;
+                    }
+                }
+                i++;
+                j++;
+            }
+        }
+        return true;
+    }
+
 
     public static void main(String[] args) {
         String str = "Mr John Smith    ";
@@ -71,5 +105,12 @@ public class StringsAndArrays {
         String word1 = "bcdefghijklmnopqrstuvwxyz";
         String word2 = "zyxwvutsrqponmlkjihgfedcba";
         System.out.println(checkPermutation(word1, word2));
+
+        System.out.println();
+        System.out.println("One Away");
+        System.out.println(oneAway("pale", "ple"));
+        System.out.println(oneAway("pales", "pale"));
+        System.out.println(oneAway("pale", "bale"));
+        System.out.println(oneAway("pale", "bake"));
     }
 }
