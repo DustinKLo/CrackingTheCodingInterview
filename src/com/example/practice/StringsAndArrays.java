@@ -27,6 +27,8 @@ public class StringsAndArrays {
 
 
     public static Boolean checkPermutation(String string1, String string2) {
+        string1 = string1.replace(" ", "");
+        string2 = string2.replace(" ", "");
 
         // hash map to keep track of each words letter count
         HashMap<Character, Integer> hash1 = new HashMap<Character, Integer>();
@@ -34,25 +36,26 @@ public class StringsAndArrays {
 
         for(int i = 0; i < string1.length(); i++) {
             char ch = string1.charAt(i);
-            if(hash1.get(string1.charAt(i)) == null) {
+            if(hash1.get(ch) == null) {
                 hash1.put(ch, 1);
             } else {
                 hash1.replace(ch, hash1.get(ch) + 1);
             }
         }
-
         for(int j = 0; j < string2.length(); j++) {
             char ch = string2.charAt(j);
-            if(hash2.get(string2.charAt(j)) == null) {
+            if(hash2.get(ch) == null) {
                 hash2.put(ch, 1);
             } else {
                 hash2.replace(ch, hash2.get(ch) + 1);
             }
         }
 
-        System.out.println(hash1);
-        System.out.println(hash2);
-
+        for(Character key: hash1.keySet()) {
+            if(hash2.get(key) != hash1.get(key)) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -61,6 +64,8 @@ public class StringsAndArrays {
         String str = "Mr John Smith    ";
         System.out.println(urlify(str));
 
-        checkPermutation("ddddustin lo", "dustin");
+        String word1 = "abcdefghijklmnopqrstuvwxyz";
+        String word2 = "zyxwvutsrqponmlkjihgfedcba";
+        System.out.println(checkPermutation(word1, word2));
     }
 }
