@@ -3,7 +3,8 @@ package com.example.practice;
 import java.util.HashMap;
 
 public class StringsAndArrays {
-    public static boolean stringIsUnique(String str) {
+
+    private static boolean stringIsUnique(String str) {
         boolean[] charSet = new boolean[256];
         for(int i = 0; i < str.length(); i++) {
             int val = str.charAt(i); // str.charAt can either be integer or String
@@ -16,7 +17,7 @@ public class StringsAndArrays {
     }
 
 
-    public static String urlify(String str) {
+    private static String urlify(String str) {
         str = str.trim();
         StringBuilder url = new StringBuilder();
         for(int i = 0; i < str.length(); i++) {
@@ -32,7 +33,7 @@ public class StringsAndArrays {
     }
 
 
-    public static Boolean checkPermutation(String string1, String string2) {
+    private static Boolean checkPermutation(String string1, String string2) {
         string1 = string1.replace(" ", "");
         string2 = string2.replace(" ", "");
 
@@ -70,7 +71,7 @@ public class StringsAndArrays {
     }
 
 
-    public static boolean oneAway(String str1, String str2) {
+    private static boolean oneAway(String str1, String str2) {
         int errors = 0;
         // case 1: the 2 words are the same length (easy case)
         if(str1.length() == str2.length()) {
@@ -107,7 +108,7 @@ public class StringsAndArrays {
     }
 
 
-    public static String stringCompression(String str) {
+    private static String stringCompression(String str) {
         Character prev = str.charAt(0);
         int letterCount = 0;
 
@@ -125,6 +126,40 @@ public class StringsAndArrays {
         }
         compressedString.append(prev).append(Integer.toString(letterCount));
         return compressedString.length() < str.length() ? compressedString.toString() : str;
+    }
+
+
+    private static void printMatrix(int[][] matrix) {
+        for(int i = 0; i < matrix.length; i++) {
+            for(int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static int[][] rotateMatrix(int[][] matrix) {
+        // rotate a NxN matrix 90 degrees
+        int n = matrix.length;
+
+        if(n != matrix[0].length) { // check if n != m and raise an error
+            throw new IllegalArgumentException("Matrix must be NxN");
+        }
+
+        int xlim = n;
+        for(int y = 0; y < n; y++) {
+            int x = 0;
+            while(x < xlim - 1) {
+                int temp = matrix[n - x - 1][n - y - 1]; // transposed value
+                matrix[n - x - 1][n - y - 1] = matrix[y][x];
+                matrix[y][x] = temp;
+                x++;
+            }
+            xlim--;
+        }
+        printMatrix(matrix);
+
+        return matrix;
     }
 
 
@@ -154,5 +189,20 @@ public class StringsAndArrays {
         System.out.println();
         System.out.println("Is Unique");
         System.out.println("dustin" + " -> " + stringIsUnique("dustind"));
+
+        int[][] multi = new int[][]{
+                { 1,  2,  3,  4,   5 },
+                { 6,  7,  8,  9,  10 },
+                { 11, 12, 13, 14, 15 },
+                { 16, 17, 18, 19, 20 },
+                { 21, 22, 23, 24, 25 }
+        };
+        System.out.println();
+        System.out.println("Rotate NxN matrix 90 degrees");
+        System.out.println("Old Matrix:");
+        printMatrix(multi);
+        System.out.println();
+        System.out.println("New Matrix:");
+        rotateMatrix(multi);
     }
 }
