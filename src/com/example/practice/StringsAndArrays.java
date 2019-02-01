@@ -188,12 +188,12 @@ public class StringsAndArrays {
         System.out.println("Is Unique");
         System.out.println("dustin" + " -> " + stringIsUnique("dustind"));
 
-        int[][] multi = new int[][]{
-                { 1,  2,  3,  4,   5 },
-                { 6,  7,  8,  9,  10 },
-                { 11, 12, 13, 14, 15 },
-                { 16, 17, 18, 19, 20 },
-                { 21, 22, 23, 24, 25 }
+        int[][] multi = new int[][] {
+            { 1,  2,  3,  4,   5 },
+            { 6,  7,  8,  9,  10 },
+            { 11, 12, 13, 14, 15 },
+            { 16, 17, 18, 19, 20 },
+            { 21, 22, 23, 24, 25 }
         };
         System.out.println();
         System.out.println("Rotate NxN matrix 90 degrees");
