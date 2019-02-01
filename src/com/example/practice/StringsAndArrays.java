@@ -111,20 +111,20 @@ public class StringsAndArrays {
         Character prev = str.charAt(0);
         int letterCount = 0;
 
-        String compressedString = "";
+        StringBuilder compressedString = new StringBuilder();
         for(int i = 0; i < str.length(); i++) {
             Character currentChar = str.charAt(i);
 
             if(prev != currentChar) {
-                compressedString = compressedString + prev + Integer.toString(letterCount);
+                compressedString.append(prev).append(Integer.toString(letterCount));
                 letterCount = 1;
             } else {
                 letterCount++;
             }
             prev = currentChar;
         }
-        compressedString = compressedString + prev + Integer.toString(letterCount);
-        return compressedString.length() < str.length() ? compressedString : str;
+        compressedString.append(prev).append(Integer.toString(letterCount));
+        return compressedString.length() < str.length() ? compressedString.toString() : str;
     }
 
 
