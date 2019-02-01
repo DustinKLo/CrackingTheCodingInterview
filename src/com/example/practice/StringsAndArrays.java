@@ -74,7 +74,7 @@ public class StringsAndArrays {
     private static boolean oneAway(String str1, String str2) {
         int errors = 0;
         // case 1: the 2 words are the same length (easy case)
-        if(str1.length() == str2.length()) {
+        if(str1.length() == str2.length() || Math.abs(str1.length() - str2.length()) > 1) {
             for(int i = 0; i < str1.length(); i++) {
                 if(str1.charAt(i) != str2.charAt(i)) {
                     errors++;
@@ -83,8 +83,6 @@ public class StringsAndArrays {
                     }
                 }
             }
-        } else if(Math.abs(str1.length() - str2.length()) > 1) {
-            return false;
         } else { // case 2: words are different length (harder case)
             int i = 0; // counter for string 1
             int j = 0; // counter for string 2
