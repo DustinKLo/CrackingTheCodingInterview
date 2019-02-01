@@ -69,7 +69,7 @@ public class StringsAndArrays {
         return true;
     }
 
-    
+
     public static boolean oneAway(String str1, String str2) {
         int errors = 0;
         // case 1: the 2 words are the same length (easy case)
@@ -82,6 +82,8 @@ public class StringsAndArrays {
                     }
                 }
             }
+        } else if(Math.abs(str1.length() - str2.length()) > 1) {
+            return false;
         } else { // case 2: words are different length (harder case)
             int i = 0; // counter for string 1
             int j = 0; // counter for string 2
@@ -129,28 +131,28 @@ public class StringsAndArrays {
     public static void main(String[] args) {
         System.out.println("URLify");
         String str = "Mr John Smith    ";
-        System.out.println(urlify(str));
+        System.out.println(str + " -> " + urlify(str));
 
         System.out.println();
         System.out.println("Check Permutation");
-        String word1 = "bcdefghijklmnopqrstuvwxyz";
+        String word1 = "abcdefghijklmnopqrstuvwxyz";
         String word2 = "zyxwvutsrqponmlkjihgfedcba";
-        System.out.println(checkPermutation(word1, word2));
+        System.out.println(word1 + " and " + word2 + " = " + checkPermutation(word1, word2));
 
         System.out.println();
         System.out.println("One Away");
-        System.out.println(oneAway("pale", "ple"));
-        System.out.println(oneAway("pales", "pale"));
-        System.out.println(oneAway("pale", "bale"));
-        System.out.println(oneAway("pale", "bake"));
+        System.out.println(oneAway("pale", "ple")); // true
+        System.out.println(oneAway("pales", "pale")); // true
+        System.out.println(oneAway("pale", "bale")); // true
+        System.out.println(oneAway("pale", "bake")); // false
 
         System.out.println();
         System.out.println("String Compression");
-        System.out.println(stringCompression("aabcccccaaa"));
-        System.out.println(stringCompression("abcdefga"));
+        System.out.println("aabcccccaaa" + " -> " + stringCompression("aabcccccaaa"));
+        System.out.println("abcdefga" + " -> " + stringCompression("abcdefga"));
 
         System.out.println();
         System.out.println("Is Unique");
-        System.out.println(stringIsUnique("dustind"));
+        System.out.println("dustin" + " -> " + stringIsUnique("dustind"));
     }
 }
