@@ -98,10 +98,34 @@ public class StringsAndArrays {
     }
 
 
+    public static String stringCompression(String str) {
+        Character prev = str.charAt(0);
+        int letterCount = 0;
+
+        String compressedString = "";
+        for(int i = 0; i < str.length(); i++) {
+            Character currentChar = str.charAt(i);
+
+            if(prev != currentChar) {
+                compressedString = compressedString + prev + Integer.toString(letterCount);
+                letterCount = 1;
+            } else {
+                letterCount++;
+            }
+            prev = currentChar;
+        }
+        compressedString = compressedString + prev + Integer.toString(letterCount);
+        return compressedString.length() < str.length() ? compressedString : str;
+    }
+
+
     public static void main(String[] args) {
+        System.out.println("URLify");
         String str = "Mr John Smith    ";
         System.out.println(urlify(str));
 
+        System.out.println();
+        System.out.println("Check Permutation");
         String word1 = "bcdefghijklmnopqrstuvwxyz";
         String word2 = "zyxwvutsrqponmlkjihgfedcba";
         System.out.println(checkPermutation(word1, word2));
@@ -112,5 +136,10 @@ public class StringsAndArrays {
         System.out.println(oneAway("pales", "pale"));
         System.out.println(oneAway("pale", "bale"));
         System.out.println(oneAway("pale", "bake"));
+
+        System.out.println();
+        System.out.println("String Compression");
+        System.out.println(stringCompression("aabcccccaaa"));
+        System.out.println(stringCompression("abcdefga"));
     }
 }
