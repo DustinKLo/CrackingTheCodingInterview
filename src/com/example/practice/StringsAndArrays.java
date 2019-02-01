@@ -30,6 +30,10 @@ public class StringsAndArrays {
         string1 = string1.replace(" ", "");
         string2 = string2.replace(" ", "");
 
+        if(string1.length() != string2.length()) {
+            return false;
+        }
+
         // hash map to keep track of each words letter count
         HashMap<Character, Integer> hash1 = new HashMap<Character, Integer>();
         HashMap<Character, Integer> hash2 = new HashMap<Character, Integer>();
@@ -64,7 +68,7 @@ public class StringsAndArrays {
         String str = "Mr John Smith    ";
         System.out.println(urlify(str));
 
-        String word1 = "abcdefghijklmnopqrstuvwxyz";
+        String word1 = "bcdefghijklmnopqrstuvwxyz";
         String word2 = "zyxwvutsrqponmlkjihgfedcba";
         System.out.println(checkPermutation(word1, word2));
     }
