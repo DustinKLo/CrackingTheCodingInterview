@@ -3,10 +3,16 @@ package com.example.practice;
 import java.util.HashMap;
 
 public class StringsAndArrays {
-    public boolean stringIsUnique(String str) {
+    public static boolean stringIsUnique(String str) {
         boolean[] charSet = new boolean[256];
-
-        return false;
+        for(int i = 0; i < str.length(); i++) {
+            int val = str.charAt(i); // str.charAt can either be integer or String
+            if(charSet[val]) {
+                return false;
+            }
+            charSet[val] = true;
+        }
+        return true;
     }
 
 
@@ -63,6 +69,7 @@ public class StringsAndArrays {
         return true;
     }
 
+    
     public static boolean oneAway(String str1, String str2) {
         int errors = 0;
         // case 1: the 2 words are the same length (easy case)
@@ -141,5 +148,9 @@ public class StringsAndArrays {
         System.out.println("String Compression");
         System.out.println(stringCompression("aabcccccaaa"));
         System.out.println(stringCompression("abcdefga"));
+
+        System.out.println();
+        System.out.println("Is Unique");
+        System.out.println(stringIsUnique("dustind"));
     }
 }
