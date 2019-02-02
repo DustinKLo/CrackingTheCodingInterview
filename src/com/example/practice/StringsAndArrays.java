@@ -162,24 +162,26 @@ public class StringsAndArrays {
 
 
     private static int[][] rotateMatrix(int[][] matrix) {
-        int n = matrix.length - 1;
+        int left = 0;
+        int n = matrix.length - 1; // rightBound
+        int depth = 0;
 
-        printMatrix(matrix);
-        System.out.println();
+        while(left < n) {
+            for (int i = left; i < n; i++) {
+                int temp1 = matrix[depth][i];
+                int temp2 = matrix[i][n];
+                int temp3 = matrix[n][n - i + depth];
+                int temp4 = matrix[n - i + depth][depth];
 
-        int i = 0;
-        int temp1 = matrix[0][i];
-        int temp2 = matrix[0][n];
-        int temp3 = matrix[n][n];
-        int temp4 = matrix[n - i][0];
-
-        matrix[0][0] = temp4;
-        matrix[0][n] = temp1;
-        matrix[n][n] = temp2;
-        matrix[n][0] = temp3;
-
-        printMatrix(matrix);
-
+                matrix[depth][i] = temp4;
+                matrix[i][n] = temp1;
+                matrix[n][n - i + depth] = temp2;
+                matrix[n - i + depth][depth] = temp3;
+            }
+            left++;
+            n--;
+            depth++;
+        }
         return matrix;
     }
 
@@ -235,7 +237,10 @@ public class StringsAndArrays {
                 { 21, 22, 23, 24, 25 }
         };
         System.out.println();
+        System.out.println("Old Matrix:");
+        printMatrix(testMatrix);
+        System.out.println();
         System.out.println("Rotate Matrix");
-        rotateMatrix(testMatrix);
+        printMatrix(rotateMatrix(testMatrix));
     }
 }
