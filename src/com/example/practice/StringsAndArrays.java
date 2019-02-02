@@ -161,6 +161,29 @@ public class StringsAndArrays {
     }
 
 
+    private static int[][] rotateMatrix(int[][] matrix) {
+        int n = matrix.length - 1;
+
+        printMatrix(matrix);
+        System.out.println();
+
+        int i = 0;
+        int temp1 = matrix[0][i];
+        int temp2 = matrix[0][n];
+        int temp3 = matrix[n][n];
+        int temp4 = matrix[n - i][0];
+
+        matrix[0][0] = temp4;
+        matrix[0][n] = temp1;
+        matrix[n][n] = temp2;
+        matrix[n][0] = temp3;
+
+        printMatrix(matrix);
+
+        return matrix;
+    }
+
+
     public static void main(String[] args) {
         System.out.println("URLify");
         String str = "Mr John Smith    ";
@@ -196,11 +219,23 @@ public class StringsAndArrays {
             { 21, 22, 23, 24, 25 }
         };
         System.out.println();
-        System.out.println("Rotate NxN matrix 90 degrees");
+        System.out.println("Transpose NxN matrix 90 degrees");
         System.out.println("Old Matrix:");
         printMatrix(multi);
         System.out.println();
         System.out.println("New Matrix:");
         printMatrix(transposeSquareMatrix(multi));
+
+
+        int[][] testMatrix = new int[][] {
+                { 1,  2,  3,  4,   5 },
+                { 6,  7,  8,  9,  10 },
+                { 11, 12, 13, 14, 15 },
+                { 16, 17, 18, 19, 20 },
+                { 21, 22, 23, 24, 25 }
+        };
+        System.out.println();
+        System.out.println("Rotate Matrix");
+        rotateMatrix(testMatrix);
     }
 }
