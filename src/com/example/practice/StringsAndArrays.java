@@ -221,7 +221,7 @@ public class StringsAndArrays {
             { 21, 22, 23, 24, 25 }
         };
         System.out.println();
-        System.out.println("Transpose NxN matrix 90 degrees");
+        System.out.println("Transpose NxN matrix");
         System.out.println("Old Matrix:");
         printMatrix(multi);
         System.out.println();
@@ -240,7 +240,7 @@ public class StringsAndArrays {
         System.out.println("Old Matrix:");
         printMatrix(testMatrix);
         System.out.println();
-        System.out.println("Rotate Matrix");
+        System.out.println("Rotate Matrix 90 degrees");
         printMatrix(rotateMatrix(testMatrix));
     }
 }

@@ -173,7 +173,7 @@ public class LinkedList {
             }
             if(cur2.next == null && cur1 != cur2) {
                 System.out.println("Linked List 2 finished");
-                cur2 = head1;
+                cur2 = head1; 
             }
 
             if(cur1 == cur2) {
