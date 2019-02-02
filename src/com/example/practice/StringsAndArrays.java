@@ -138,7 +138,7 @@ public class StringsAndArrays {
         }
     }
 
-    private static int[][] rotateMatrix(int[][] matrix) {
+    private static int[][] transposeSquareMatrix(int[][] matrix) {
         // rotate a NxN matrix 90 degrees
         int n = matrix.length;
 
@@ -201,6 +201,6 @@ public class StringsAndArrays {
         printMatrix(multi);
         System.out.println();
         System.out.println("New Matrix:");
-        printMatrix(rotateMatrix(multi));
+        printMatrix(transposeSquareMatrix(multi));
     }
 }
