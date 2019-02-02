@@ -164,7 +164,7 @@ public class StringsAndArrays {
     private static int[][] rotateMatrix(int[][] matrix) {
         int left = 0;
         int n = matrix.length - 1; // rightBound
-        int depth = 0;
+        int depth = 0; // rotating one deeper layer of the matrix
 
         while(left < n) {
             for (int i = left; i < n; i++) {
