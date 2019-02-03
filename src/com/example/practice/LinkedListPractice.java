@@ -98,15 +98,15 @@ public class LinkedListPractice {
         list3.appendToTail(0);
         list3.appendToTail(1);
         list3.appendToTail(2);
-        list3.appendToTail(2);
         list3.appendToTail(3);
-        list3.appendToTail(4);
         list3.appendToTail(4);
         list3.appendToTail(5);
         list3.appendToTail(6);
         list3.appendToTail(7);
         list3.appendToTail(8);
         list3.appendToTail(9);
+        list3.appendToTail(10);
+        list3.appendToTail(11);
         list3.printLinkedList();
         list3.removeDuplicates();
         list3.printLinkedList();
