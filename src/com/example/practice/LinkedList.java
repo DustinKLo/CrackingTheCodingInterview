@@ -237,6 +237,7 @@ public class LinkedList {
         Node slow = head;
         Node fast = head;
 
+        // fast moves 2 per step and slow move 1 per step, they'll eventually meet
         while(fast.next != null || fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
