@@ -115,6 +115,7 @@ public class LinkedListPractice {
         System.out.println();
         System.out.println(list3.kthToLast(3).data);
 
+        System.out.println();
         LinkedList list4 = new LinkedList();
         Node j1 = new Node(1); list4.appendToTail(j1);
         Node j2 = new Node(2); list4.appendToTail(j2);
@@ -126,5 +127,6 @@ public class LinkedListPractice {
         Node j8 = new Node(8); list4.appendToTail(j8);
         Node j9 = new Node(9); list4.appendToTail(j9);
         list4.appendToTail(j4);
+        list4.findLoop();
     }
 }

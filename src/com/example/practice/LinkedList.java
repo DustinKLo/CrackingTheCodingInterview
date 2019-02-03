@@ -237,17 +237,24 @@ public class LinkedList {
         Node slow = head;
         Node fast = head;
 
-        while(fast!= null) {
+        while(fast.next != null || fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
 
             if(slow == fast) {
+                System.out.println("Fast Node and slow node intersect at: " + slow.data);
                 break;
             }
         }
 
-        System.out.println(slow.data);
-
-        return new Node(4);
+        // leave fast node at current spot, take slow node back to beginning
+        // both nodes move at one move, they will meet at the beginning of the loop
+        slow = head;
+        while(slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        System.out.println("Loop Begins at: " + slow.data);
+        return slow;
     }
 }
