@@ -210,4 +210,26 @@ public class LinkedList {
         }
         return cur1;
     }
+
+    public Node kthToLast(int k) {
+        Node cur = head;
+        int length = 0;
+
+        while(cur != null) {
+            length++;
+            cur = cur.next;
+        }
+
+        System.out.println("Length of Linked List: " + length);
+        if(k > length) {
+            throw new IllegalArgumentException("K is greater than the length of the Linked List");
+        }
+
+        Node cur2 = head;
+        for(int i = 0; i < length - k - 1; i++) {
+            cur2 = cur2.next;
+        }
+
+        return cur2;
+    }
 }
