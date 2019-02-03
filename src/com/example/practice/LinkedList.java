@@ -8,15 +8,15 @@ public class LinkedList {
     Node head = null;
     Node tail = null;
 
-    public void appendToTail(int d) { // add node to end of linkedlist
-        Node temp = new Node(d);
+    public void appendToTail(Node d) { // add node to end of linkedlist
+//        Node temp = new Node(d);
 
         if (head == null) {
-            head = temp;
+            head = d;
             head.next = tail;
             tail = head;
         } else {
-            tail.next = temp; // making new node as the new tail
+            tail.next = d; // making new node as the new tail
             tail = tail.next; // giving the new node the title as tail
         }
     }
@@ -122,9 +122,9 @@ public class LinkedList {
         Node cur = head;
         while(cur != null) {
             if(cur.data < k) {
-                lower.appendToTail(cur.data);
+                lower.appendToTail(cur);
             } else {
-                upper.appendToTail(cur.data);
+                upper.appendToTail(cur);
             }
             cur = cur.next;
         }
@@ -231,5 +231,23 @@ public class LinkedList {
         }
 
         return cur2;
+    }
+
+    public Node findLoop() {
+        Node slow = head;
+        Node fast = head;
+
+        while(fast!= null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast) {
+                break;
+            }
+        }
+
+        System.out.println(slow.data);
+
+        return new Node(4);
     }
 }

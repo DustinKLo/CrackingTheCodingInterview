@@ -5,15 +5,15 @@ public class LinkedListPractice {
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        list.appendToTail(1);
-        list.appendToTail(2);
-        list.appendToTail(3);
-        list.appendToTail(4);
-        list.appendToTail(5);
-        list.appendToTail(4);
-        list.appendToTail(3);
-        list.appendToTail(2);
-        list.appendToTail(1);
+        Node a1 = new Node(1); list.appendToTail(a1);
+        Node a2 = new Node(2); list.appendToTail(a2);
+        Node a3 = new Node(3); list.appendToTail(a3);
+        Node a4 = new Node(4); list.appendToTail(a4);
+        Node a5 = new Node(5); list.appendToTail(a5);
+        Node a6 = new Node(4); list.appendToTail(a6);
+        Node a7 = new Node(3); list.appendToTail(a7);
+        Node a8 = new Node(2); list.appendToTail(a8);
+        Node a9 = new Node(1); list.appendToTail(a9);
 
         list.printLinkedList();
         LinkedList reversedLinkedList = list.reverseLinkedList();
@@ -23,16 +23,16 @@ public class LinkedListPractice {
         list.partitionLinkedList(3);
 
         LinkedList left = new LinkedList();
-        left.appendToTail(7);
-        left.appendToTail(1);
-        left.appendToTail(6);
-        left.appendToTail(9);
+        Node b1 = new Node(7); left.appendToTail(b1);
+        Node b2 = new Node(1); left.appendToTail(b2);
+        Node b3 = new Node(6); left.appendToTail(b3);
+        Node b4 = new Node(9); left.appendToTail(b4);
 
         LinkedList right = new LinkedList();
-        right.appendToTail(5);
-        right.appendToTail(9);
-        right.appendToTail(2);
-        right.appendToTail(7);
+        Node c1 = new Node(5); right.appendToTail(c1);
+        Node c2 = new Node(9); right.appendToTail(c2);
+        Node c3 = new Node(2); right.appendToTail(c3);
+        Node c4 = new Node(7); right.appendToTail(c4);
 
         System.out.println();
         left.printLinkedList();
@@ -48,11 +48,11 @@ public class LinkedListPractice {
         }
 
         LinkedList list2 = new LinkedList();
-        list2.appendToTail(1);
-        list2.appendToTail(2);
-        list2.appendToTail(3);
-        list2.appendToTail(4);
-        list2.appendToTail(5);
+        Node d1 = new Node(1); list2.appendToTail(d1);
+        Node d2 = new Node(2); list2.appendToTail(d2);
+        Node d3 = new Node(3); list2.appendToTail(d3);
+        Node d4 = new Node(4); list2.appendToTail(d4);
+        Node d5 = new Node(5); list2.appendToTail(d5);
         list2.printLinkedList();
         list2.reverseLinkedListPerm();
         list2.printLinkedList();
@@ -61,18 +61,18 @@ public class LinkedListPractice {
 
 
         System.out.println();
-        Node n1 = new Node(1);
-        Node n2 = new Node(2); n1.appentTail(n2);
-        Node n3 = new Node(3); n2.appentTail(n3);
-        Node n4 = new Node(4); n3.appentTail(n4);
-        Node n5 = new Node(5); n4.appentTail(n5);
-        Node n6 = new Node(6); n5.appentTail(n6);
-        Node n7 = new Node(7); n6.appentTail(n7);
+        Node e1 = new Node(1);
+        Node e2 = new Node(2); e1.appendTail(e2);
+        Node e3 = new Node(3); e2.appendTail(e3);
+        Node e4 = new Node(4); e3.appendTail(e4);
+        Node e5 = new Node(5); e4.appendTail(e5);
+        Node e6 = new Node(6); e5.appendTail(e6);
+        Node e7 = new Node(7); e6.appendTail(e7);
 
-        Node a1 = new Node(10);
-        Node a2 = new Node(11); a1.appentTail(a2);
-        Node a3 = new Node(12); a2.appentTail(a3);
-        a3.appentTail(n7);
+        Node f1 = new Node(10);
+        Node f2 = new Node(11); f1.appendTail(f2);
+        Node f3 = new Node(12); f2.appendTail(f3);
+        f3.appendTail(e7);
 
         System.out.println("1 ->  2 ->  3 ->  4 ->  5 ->  6 -> 7\n" +
                 "                        ^\n" +
@@ -80,38 +80,51 @@ public class LinkedListPractice {
                 "      10-> 11->  12 ----|");
 
         System.out.println();
-        LinkedList.findIntersection(n1, a1);
+        LinkedList.findIntersection(e1, f1);
+
 
         System.out.println();
-        Node b1 = new Node(1);
-        Node b2 = new Node(2); b1.appentTail(b2);
-        Node b3 = new Node(3); b2.appentTail(b3);
-        Node b4 = new Node(3); b3.appentTail(b4);
-        Node b5 = new Node(4); b4.appentTail(b5);
-        Node b6 = new Node(5); b5.appentTail(b6);
-        Node b7 = new Node(5); b6.appentTail(b7);
-        Node b8 = new Node(7); b7.appentTail(b8);
-        b1.printNodes();
+        Node g1 = new Node(1);
+        Node g2 = new Node(2); g1.appendTail(g2);
+        Node g3 = new Node(3); g2.appendTail(g3);
+        Node g4 = new Node(3); g3.appendTail(g4);
+        Node g5 = new Node(4); g4.appendTail(g5);
+        Node g6 = new Node(5); g5.appendTail(g6);
+        Node g7 = new Node(5); g6.appendTail(g7);
+        Node g8 = new Node(7); g7.appendTail(g8);
+        g1.printNodes();
 
         System.out.println();
         LinkedList list3 = new LinkedList();
-        list3.appendToTail(0);
-        list3.appendToTail(1);
-        list3.appendToTail(2);
-        list3.appendToTail(3);
-        list3.appendToTail(4);
-        list3.appendToTail(5);
-        list3.appendToTail(6);
-        list3.appendToTail(7);
-        list3.appendToTail(8);
-        list3.appendToTail(9);
-        list3.appendToTail(10);
-        list3.appendToTail(11);
+        Node h1 = new Node(0); list3.appendToTail(h1);
+        Node h2 = new Node(1); list3.appendToTail(h2);
+        Node h3 = new Node(2); list3.appendToTail(h3);
+        Node h4 = new Node(2); list3.appendToTail(h4);
+        Node h5 = new Node(4); list3.appendToTail(h5);
+        Node h6 = new Node(4); list3.appendToTail(h6);
+        Node h7 = new Node(6); list3.appendToTail(h7);
+        Node h8 = new Node(7); list3.appendToTail(h8);
+        Node h9 = new Node(8); list3.appendToTail(h9);
+        Node h10 = new Node(8); list3.appendToTail(h10);
+        Node h11 = new Node(10); list3.appendToTail(h11);
+        Node h12 = new Node(10); list3.appendToTail(h12);
         list3.printLinkedList();
         list3.removeDuplicates();
         list3.printLinkedList();
 
         System.out.println();
         System.out.println(list3.kthToLast(3).data);
+
+        LinkedList list4 = new LinkedList();
+        Node j1 = new Node(1); list4.appendToTail(j1);
+        Node j2 = new Node(2); list4.appendToTail(j2);
+        Node j3 = new Node(3); list4.appendToTail(j3);
+        Node j4 = new Node(4); list4.appendToTail(j4);
+        Node j5 = new Node(5); list4.appendToTail(j5);
+        Node j6 = new Node(6); list4.appendToTail(j6);
+        Node j7 = new Node(7); list4.appendToTail(j7);
+        Node j8 = new Node(8); list4.appendToTail(j8);
+        Node j9 = new Node(9); list4.appendToTail(j9);
+        list4.appendToTail(j4);
     }
 }

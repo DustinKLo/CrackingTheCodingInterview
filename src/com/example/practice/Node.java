@@ -10,7 +10,7 @@ public class Node {
         data = d;
     }
 
-    public void appentTail(Node newNode) {
+    public void appendTail(Node newNode) {
         this.next = newNode;
     }
 
