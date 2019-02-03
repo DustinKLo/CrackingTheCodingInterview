@@ -1,6 +1,7 @@
 package com.example.practice;
 
 import java.util.EmptyStackException;
+import java.util.Stack;
 
 public class MyStack<T> {
     private static class StackNode<T> {
@@ -20,6 +21,12 @@ public class MyStack<T> {
         T item = top.data;
         top = top.next;
         return item;
+    }
+
+    public void push(T item) {
+        StackNode<T> temp = new StackNode<T>(item);
+        temp.next = top;
+        top = temp;
     }
 
     public T peek() {
