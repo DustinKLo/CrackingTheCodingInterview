@@ -111,6 +111,7 @@ public class LinkedListPractice {
         list3.removeDuplicates();
         list3.printLinkedList();
 
-        list3.kthToLast(3);
+        System.out.println();
+        System.out.println(list3.kthToLast(3).data);
     }
 }
