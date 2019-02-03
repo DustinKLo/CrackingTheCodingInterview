@@ -233,7 +233,7 @@ public class LinkedList {
         return cur2;
     }
 
-    
+
     public Node findLoop() {
         Node slow = head;
         Node fast = head;
