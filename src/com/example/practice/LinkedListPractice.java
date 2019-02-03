@@ -81,5 +81,35 @@ public class LinkedListPractice {
 
         System.out.println();
         LinkedList.findIntersection(n1, a1);
+
+        System.out.println();
+        Node b1 = new Node(1);
+        Node b2 = new Node(2); b1.appentTail(b2);
+        Node b3 = new Node(3); b2.appentTail(b3);
+        Node b4 = new Node(3); b3.appentTail(b4);
+        Node b5 = new Node(4); b4.appentTail(b5);
+        Node b6 = new Node(5); b5.appentTail(b6);
+        Node b7 = new Node(5); b6.appentTail(b7);
+        Node b8 = new Node(7); b7.appentTail(b8);
+        b1.printNodes();
+
+        System.out.println();
+        LinkedList list3 = new LinkedList();
+        list3.appendToTail(0);
+        list3.appendToTail(1);
+        list3.appendToTail(2);
+        list3.appendToTail(2);
+        list3.appendToTail(3);
+        list3.appendToTail(4);
+        list3.appendToTail(4);
+        list3.appendToTail(5);
+        list3.appendToTail(6);
+        list3.appendToTail(6);
+        list3.appendToTail(7);
+        list3.appendToTail(7);
+        list3.printLinkedList();
+        list3.removeDuplicates();
+        list3.printLinkedList();
+
     }
 }

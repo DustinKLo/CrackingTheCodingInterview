@@ -1,5 +1,7 @@
 package com.example.practice;
 
+import java.util.ArrayList;
+
 public class Node {
     Node next;
     int data;
@@ -10,7 +12,6 @@ public class Node {
 
     public void appentTail(Node newNode) {
         this.next = newNode;
-        return;
     }
 
     public void printNodes() {

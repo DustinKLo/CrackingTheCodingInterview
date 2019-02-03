@@ -46,6 +46,7 @@ public class LinkedList {
         return reverse;
     }
 
+
     public void reverseLinkedListPerm() {
         if(head == null || head.next == null) {
             return; // linked list of length 1
@@ -65,8 +66,31 @@ public class LinkedList {
         }
         head = prev;
         return;
-
     }
+
+
+    // still need to figure out how to print the deduped linked list
+    public void removeDuplicates() {
+        Node prev = head;
+        Node cur = prev.next;
+
+        ArrayList<Integer> cache = new ArrayList<Integer>();
+        cache.add(prev.data);
+
+        while(cur != null) {
+            if(cache.indexOf(cur.data) != -1) { // is duplicate
+                cur = prev.next.next;
+            }
+            if(cur != null) {
+                cache.add(cur.data);
+                System.out.println("After Change: \t prev: " + prev.data + " \t cur: " + cur.data);
+            }
+            prev = cur;
+            cur = (cur != null) ? cur.next : null;
+        }
+        System.out.println(cache);
+    }
+
 
     public void printLinkedList() {
         Node cur = head;
@@ -82,6 +106,7 @@ public class LinkedList {
         System.out.println();
     }
 
+
     public LinkedList mergeLinkedLists(LinkedList left, LinkedList right) {
         left.tail.next = right.head; // make the left tail point to head
         left.tail = right.tail; // label the left tail as the right tail
@@ -89,7 +114,6 @@ public class LinkedList {
         left.printLinkedList();
         return left;
     }
-
     public LinkedList partitionLinkedList(int k) {
         // k is the divider (or divider)
         LinkedList lower = new LinkedList();
@@ -126,6 +150,7 @@ public class LinkedList {
         return true;
     }
 
+
     public static int addTwoLinkedLists(LinkedList left, LinkedList right) {
         Node leftCur = left.head;
         Node rightCur = right.head;
@@ -161,6 +186,7 @@ public class LinkedList {
         return ans;
     }
 
+
     public static Node findIntersection(Node node1, Node node2) {
         Node head1 = node1; Node cur1 = node1;
         Node head2 = node2; Node cur2 = node2;
@@ -173,18 +199,15 @@ public class LinkedList {
             }
             if(cur2.next == null && cur1 != cur2) {
                 System.out.println("Linked List 2 finished");
-                cur2 = head1; 
+                cur2 = head1;
             }
-
             if(cur1 == cur2) {
                 System.out.println("Intersection Node is: " + cur1.data);
                 break;
             }
-
             cur1 = cur1.next;
             cur2 = cur2.next;
         }
-
         return cur1;
     }
 }
