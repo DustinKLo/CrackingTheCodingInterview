@@ -161,7 +161,7 @@ public class StringsAndArrays {
     }
 
 
-    private static int[][] rotateMatrix(int[][] matrix) {
+    private static int[][] rotateMatrix90Degrees(int[][] matrix) {
         int left = 0;
         int n = matrix.length - 1; // rightBound
         int depth = 0; // rotating one deeper layer of the matrix
@@ -241,6 +241,6 @@ public class StringsAndArrays {
         printMatrix(testMatrix);
         System.out.println();
         System.out.println("Rotate Matrix 90 degrees");
-        printMatrix(rotateMatrix(testMatrix));
+        printMatrix(rotateMatrix90Degrees(testMatrix));
     }
 }
