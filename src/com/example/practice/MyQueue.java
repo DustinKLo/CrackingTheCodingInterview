@@ -1,5 +1,8 @@
 package com.example.practice;
 
+
+import java.util.NoSuchElementException;
+
 public class MyQueue<T> {
 
     private static class QueueNode<T> {
@@ -26,12 +29,15 @@ public class MyQueue<T> {
         }
     }
 
-    public void remove() {
-        if(first == last) {
+    public T remove() {
+        if (first== null) throw new NoSuchElementException();
 
-        } else {
-
+        T firstData = first.data;
+        first = first.next;
+        if(first == null) {
+            last = null;
         }
+        return firstData;
     }
 
 }
