@@ -62,7 +62,7 @@ public class TreeNode {
         // ArrayList of LinkedLists to keep track of nodes at each depth
         ArrayList<LinkedList> depthList = new ArrayList<LinkedList>();
 
-        class HelperFunctions {
+        class HelperFunction {
             public void traverseTree(TreeNode node, int depth) {
                 if(node != null) {
                     Node n = new Node(node.data);
@@ -82,13 +82,15 @@ public class TreeNode {
             }
         }
 
-        HelperFunctions helper = new HelperFunctions();
+        HelperFunction helper = new HelperFunction();
         helper.traverseTree(node, 0);
-        depthList.forEach((list) -> list.printLinkedList()); // print each linked list
+        depthList.forEach(linkedList -> linkedList.printLinkedList()); // print each linked list
     }
 
     // ****************************************************************************************** //
     // MAIN METHOD
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+        
+    }
 
 }
