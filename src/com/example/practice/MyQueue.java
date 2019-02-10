@@ -40,4 +40,7 @@ public class MyQueue<T> {
         return firstData;
     }
 
+    public boolean isEmpty() {
+        return first == null;
+    }
 }

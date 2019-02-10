@@ -1,6 +1,6 @@
 package com.example.practice;
 
-import jdk.nashorn.api.tree.Tree;
+import java.util.ArrayList;
 
 public class TreeNode {
     public int data;
@@ -53,5 +53,42 @@ public class TreeNode {
         }
         return null; // if TreeNode is not found
     }
+
+
+    // ****************************************************************************************** //
+    // PRACTICE PROBLEMS
+
+    public static void listOfDepths(TreeNode node) { // method of TreeNode object
+        // ArrayList of LinkedLists to keep track of nodes at each depth
+        ArrayList<LinkedList> depthList = new ArrayList<LinkedList>();
+
+        class HelperFunctions {
+            public void traverseTree(TreeNode node, int depth) {
+                if(node != null) {
+                    Node n = new Node(node.data);
+                    if(depthList.size() < depth) { // if the array value does not exist
+                        LinkedList linkedList = new LinkedList();
+                        linkedList.appendToTail(n);
+                        depthList.add(linkedList);
+                    } else { // if the array value already exists
+                        LinkedList linkedList = depthList.get(depth);
+                        linkedList.appendToTail(n);
+                        depthList.set(depth, linkedList);
+                    }
+
+                    traverseTree(node.left, depth + 1);
+                    traverseTree(node.right, depth + 1);
+                }
+            }
+        }
+
+        HelperFunctions helper = new HelperFunctions();
+        helper.traverseTree(node, 0);
+        depthList.forEach((list) -> list.printLinkedList()); // print each linked list
+    }
+
+    // ****************************************************************************************** //
+    // MAIN METHOD
+    public static void main(String[] args) {}
 
 }
