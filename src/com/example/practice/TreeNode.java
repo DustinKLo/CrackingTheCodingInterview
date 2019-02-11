@@ -102,13 +102,32 @@ public class TreeNode {
 
     public static TreeNode minHeightTree(Integer[] arr) {
         // try recursively splitting the array by halves and inserting the "midpoint" into tree
+//        TreeNode tree = new TreeNode();
         class HelperFunction {
-            public void splitArray(Integer[] subArr, int left, int right) {
-
+            public void splitArray(Integer[] arr) {
+                // get mid point of array every time we split it in half
+                if(arr.length == 1) {
+                    // add last element to TreeNode
+                } if(arr.length == 2) {
+                    // add first element to TreeNode and recurse the 2nd element
+                    // splitArray()
+                } else {
+                    // find and add midpoint to TreeNode
+                    // separate the left and right sides from midpoint and recurse
+                    int mid = arr.length / 2;
+                    if(arr.length % 2 != 0) {
+                        // if array is odd length
+                        // splitArray()
+                    } else {
+                        // array is even length
+                        // splitArray()
+                    }
+                }
             }
         }
         // Integer[] x = Arrays.copyOfRange(arr, 0, 5);
         HelperFunction helper = new HelperFunction();
+        helper.splitArray(arr);
         return new TreeNode(1);
     }
 
@@ -138,7 +157,6 @@ public class TreeNode {
 
 
         Integer[] nodeArr = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
-        System.out.println(Arrays.toString(nodeArr));
         minHeightTree(nodeArr);
     }
 
