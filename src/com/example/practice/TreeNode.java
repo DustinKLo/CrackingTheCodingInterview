@@ -97,14 +97,19 @@ public class TreeNode {
     // MAIN METHOD
     public static void main(String[] args) {
         TreeNode root = new TreeNode(20);
+
         root.insertInOrder(10);
         root.insertInOrder(30);
+
         root.insertInOrder(5);
         root.insertInOrder(15);
         root.insertInOrder(25);
         root.insertInOrder(35);
+
         root.insertInOrder(2);
         root.insertInOrder(7);
+        root.insertInOrder(12);
+        root.insertInOrder(17);
         root.insertInOrder(22);
         root.insertInOrder(27);
         root.insertInOrder(32);
