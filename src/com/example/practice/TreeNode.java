@@ -62,7 +62,7 @@ public class TreeNode {
     // this is a depth first search solution (recursion)
     // breadth first search algorithm requires 2 queues
     //    one queue as the current "layer" that we dequeue
-    //    one queue as the "next" layer that we en-queue (non-null nodes) every when we go through the current layer
+    //    other queue as the "next" layer that we en-queue (non-null nodes) every when we go through the current layer
     //    make the old queue the new queue and set the new queue to empty
     public static void listOfDepths(TreeNode node) { // method of TreeNode object
         // ArrayList of LinkedLists to keep track of nodes at each depth
@@ -81,7 +81,6 @@ public class TreeNode {
                         linkedList.appendToTail(n);
                         depthList.set(depth, linkedList);
                     }
-
                     traverseTree(node.left, depth + 1);
                     traverseTree(node.right, depth + 1);
                 }
