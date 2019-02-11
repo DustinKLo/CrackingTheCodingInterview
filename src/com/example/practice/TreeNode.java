@@ -63,10 +63,10 @@ public class TreeNode {
         ArrayList<LinkedList> depthList = new ArrayList<LinkedList>();
 
         class HelperFunction {
-            public void traverseTree(TreeNode node, int depth) {
+            private void traverseTree(TreeNode node, int depth) {
                 if(node != null) {
                     Node n = new Node(node.data);
-                    if(depthList.size() < depth) { // if the array value does not exist
+                    if(depthList.size() - 1 < depth) { // if the array value does not exist
                         LinkedList linkedList = new LinkedList();
                         linkedList.appendToTail(n);
                         depthList.add(linkedList);
@@ -84,13 +84,32 @@ public class TreeNode {
 
         HelperFunction helper = new HelperFunction();
         helper.traverseTree(node, 0);
-        depthList.forEach(linkedList -> linkedList.printLinkedList()); // print each linked list
+
+        // depthList.forEach(linkedList -> linkedList.printLinkedList()); // print each linked list
+        for(int i = 0; i < depthList.size(); i++) {
+            System.out.println("Layer " + (i + 1) + ": ");
+            depthList.get(i).printLinkedList();
+            System.out.println();
+        }
     }
 
     // ****************************************************************************************** //
     // MAIN METHOD
     public static void main(String[] args) {
-        
+        TreeNode root = new TreeNode(20);
+        root.insertInOrder(10);
+        root.insertInOrder(30);
+        root.insertInOrder(5);
+        root.insertInOrder(15);
+        root.insertInOrder(25);
+        root.insertInOrder(35);
+        root.insertInOrder(2);
+        root.insertInOrder(7);
+        root.insertInOrder(22);
+        root.insertInOrder(27);
+        root.insertInOrder(32);
+        root.insertInOrder(37);
+        listOfDepths(root);
     }
 
 }
