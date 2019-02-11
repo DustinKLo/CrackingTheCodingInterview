@@ -1,6 +1,7 @@
 package com.example.practice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TreeNode {
     public int data;
@@ -58,6 +59,11 @@ public class TreeNode {
     // ****************************************************************************************** //
     // PRACTICE PROBLEMS
 
+    // this is a depth first search solution (recursion)
+    // breadth first search algorithm requires 2 queues
+    //    one queue as the current "layer" that we dequeue
+    //    one queue as the "next" layer that we en-queue (non-null nodes) every when we go through the current layer
+    //    make the old queue the new queue and set the new queue to empty
     public static void listOfDepths(TreeNode node) { // method of TreeNode object
         // ArrayList of LinkedLists to keep track of nodes at each depth
         ArrayList<LinkedList> depthList = new ArrayList<LinkedList>();
@@ -94,6 +100,20 @@ public class TreeNode {
         }
     }
 
+
+    public static TreeNode minHeightTree(Integer[] arr) {
+        // try recursively splitting the array by halves and inserting the "midpoint" into tree
+        class HelperFunction {
+            public void splitArray(Integer[] subArr, int left, int right) {
+
+            }
+        }
+        // Integer[] x = Arrays.copyOfRange(arr, 0, 5);
+        HelperFunction helper = new HelperFunction();
+        return new TreeNode(1);
+    }
+
+
     // ****************************************************************************************** //
     // MAIN METHOD
     public static void main(String[] args) {
@@ -116,6 +136,11 @@ public class TreeNode {
         root.insertInOrder(32);
         root.insertInOrder(37);
         listOfDepths(root);
+
+
+        Integer[] nodeArr = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        System.out.println(Arrays.toString(nodeArr));
+        minHeightTree(nodeArr);
     }
 
 }
