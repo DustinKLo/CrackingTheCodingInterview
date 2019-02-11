@@ -109,8 +109,7 @@ public class TreeNode {
                 if(arr.length == 1) {
                     // add last element to TreeNode
                 } if(arr.length == 2) {
-                    // add first element to TreeNode and recurse the 2nd element
-                    // splitArray()
+                    // add both elements to TreeNode
                 } else {
                     // find and add midpoint to TreeNode
                     // separate the left and right sides from midpoint and recurse
