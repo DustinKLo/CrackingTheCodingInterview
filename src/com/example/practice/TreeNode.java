@@ -104,9 +104,9 @@ public class TreeNode {
 
 
     public static TreeNode createMinHeightTree(int[] arr) {
-        // try recursively splitting the array by halves and inserting the "midpoint" into tree
-        ArrayList<Integer> treeOrder = new ArrayList<Integer>();
+        ArrayList<Integer> treeOrder = new ArrayList<Integer>(); // array to keep track of Nodes to insert in order
 
+        // recursively splitting the array by halves and inserting the "midpoint" into tree
         class HelperFunction {
             public void splitArray(int[] arr) {
                 // get mid point of array every time we split it in half
@@ -134,7 +134,6 @@ public class TreeNode {
         for(int i = 1; i < treeOrder.size(); i++) {
             minTree.insertInOrder(treeOrder.get(i));
         }
-
         return minTree;
     }
 
