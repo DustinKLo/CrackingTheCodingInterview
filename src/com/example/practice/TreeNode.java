@@ -1,5 +1,7 @@
 package com.example.practice;
 
+import jdk.nashorn.api.tree.Tree;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -86,7 +88,6 @@ public class TreeNode {
                 }
             }
         }
-
         // calls helper function to populate the array with Linked List for each depth
         HelperFunction helper = new HelperFunction();
         helper.traverseTree(node, 0);
@@ -100,34 +101,39 @@ public class TreeNode {
     }
 
 
-    public static TreeNode minHeightTree(Integer[] arr) {
+    public static TreeNode minHeightTree(int[] arr) {
         // try recursively splitting the array by halves and inserting the "midpoint" into tree
-//        TreeNode tree = new TreeNode();
+        ArrayList<Integer> treeOrder = new ArrayList<Integer>();
+
         class HelperFunction {
-            public void splitArray(Integer[] arr) {
+            public void splitArray(int[] arr) {
                 // get mid point of array every time we split it in half
-                if(arr.length == 1) {
-                    // add last element to TreeNode
-                } if(arr.length == 2) {
-                    // add both elements to TreeNode
+                if(arr.length == 1) { // add only element to TreeNode
+                    treeOrder.add(arr[0]);
+                } else if(arr.length == 2) { // add both elements to TreeNode
+                    treeOrder.add(arr[0]);
+                    treeOrder.add(arr[1]);
                 } else {
-                    // find and add midpoint to TreeNode
+                    int mid = arr.length / 2; // find and add midpoint to TreeNode
                     // separate the left and right sides from midpoint and recurse
-                    int mid = arr.length / 2;
-                    if(arr.length % 2 != 0) {
-                        // if array is odd length
-                        // splitArray()
-                    } else {
-                        // array is even length
-                        // splitArray()
-                    }
+                    int[] left = Arrays.copyOfRange(arr, 0, mid);
+                    int[] right = Arrays.copyOfRange(arr, mid + 1, arr.length);
+                    treeOrder.add(arr[mid]);
+                    splitArray(left);
+                    splitArray(right);
                 }
             }
         }
-        // Integer[] x = Arrays.copyOfRange(arr, 0, 5);
         HelperFunction helper = new HelperFunction();
         helper.splitArray(arr);
-        return new TreeNode(1);
+        System.out.println(treeOrder.toString());
+
+        TreeNode minTree = new TreeNode(treeOrder.get(0));
+        for(int i = 1; i < treeOrder.size(); i++) {
+            minTree.insertInOrder(treeOrder.get(i));
+        }
+
+        return minTree;
     }
 
 
@@ -155,8 +161,9 @@ public class TreeNode {
         listOfDepths(root);
 
 
-        Integer[] nodeArr = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
-        minHeightTree(nodeArr);
+        int[] nodeArr = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
+        TreeNode minHeightTree = minHeightTree(nodeArr);
+        listOfDepths(minHeightTree);
     }
 
 }
