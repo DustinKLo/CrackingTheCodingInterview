@@ -1,7 +1,5 @@
 package com.example.practice;
 
-import jdk.nashorn.api.tree.Tree;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -68,6 +66,9 @@ public class TreeNode {
     //    make the old queue the new queue and set the new queue to empty
     public static void listOfDepths(TreeNode node) { // method of TreeNode object
         // ArrayList of LinkedLists to keep track of nodes at each depth
+
+        // Given the structure of the TreeNode class
+        // We can append to the ArrayList the order of which we insert the nodes into the Tree
         ArrayList<LinkedList> depthList = new ArrayList<LinkedList>();
 
         class HelperFunction { // helper function to traverse through the tree and add onto the array
@@ -159,7 +160,6 @@ public class TreeNode {
         root.insertInOrder(32);
         root.insertInOrder(37);
         listOfDepths(root);
-
 
         int[] nodeArr = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
         TreeNode minHeightTree = minHeightTree(nodeArr);
