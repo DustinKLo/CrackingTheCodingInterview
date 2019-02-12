@@ -163,6 +163,9 @@ public class TreeNode {
         listOfDepths(root);
 
         int[] nodeArr = IntStream.range(1, 102).toArray();
+        System.out.println();
+        System.out.println("Minimum Height Tree:");
+        System.out.println(Arrays.toString(nodeArr));
         TreeNode smallTree = createMinHeightTree(nodeArr);
         listOfDepths(smallTree);
     }
