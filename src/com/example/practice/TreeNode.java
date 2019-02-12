@@ -103,7 +103,7 @@ public class TreeNode {
     }
 
 
-    public static TreeNode minHeightTree(int[] arr) {
+    public static TreeNode createMinHeightTree(int[] arr) {
         // try recursively splitting the array by halves and inserting the "midpoint" into tree
         ArrayList<Integer> treeOrder = new ArrayList<Integer>();
 
@@ -163,8 +163,8 @@ public class TreeNode {
         listOfDepths(root);
 
         int[] nodeArr = IntStream.range(1, 102).toArray();
-        TreeNode minHeightTree = minHeightTree(nodeArr);
-        listOfDepths(minHeightTree);
+        TreeNode smallTree = createMinHeightTree(nodeArr);
+        listOfDepths(smallTree);
     }
 
 }
