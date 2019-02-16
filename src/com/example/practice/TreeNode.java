@@ -1,20 +1,22 @@
 package com.example.practice;
 
+import jdk.nashorn.api.tree.Tree;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class TreeNode {
-    public int data;
-    public TreeNode left, right, parent;
+    private int data;
+    private TreeNode left, right, parent;
     private int size = 0;
 
-    public TreeNode(int d) {
+    private TreeNode(int d) {
         data = d;
         size = 1;
     }
 
-    public void insertInOrder(int d) {
+    private void insertInOrder(int d) {
         if(d <= data) { // traverse down the left side of tree
             if(left == null) {
                 setLeftChild(new TreeNode(d)); // adds node to tree (BASE CASE)
@@ -31,21 +33,21 @@ public class TreeNode {
         size++;
     }
 
-    public void setLeftChild(TreeNode left) {
+    private void setLeftChild(TreeNode left) {
         this.left = left;
         if(left != null) {
             left.parent = this;
         }
     }
 
-    public void setRightChild(TreeNode right) {
+    private void setRightChild(TreeNode right) {
         this.right = right;
         if(right != null) {
             right.parent = this;
         }
     }
 
-    public TreeNode find(int d) {
+    private TreeNode find(int d) {
         if(d == data) {// base case
             return this;
         } else if(d <= data) { // traverse to the left of the TreeNode
@@ -65,7 +67,7 @@ public class TreeNode {
     //    one queue as the current "layer" that we dequeue
     //    other queue as the "next" layer that we en-queue (non-null nodes) every when we go through the current layer
     //    make the old queue the new queue and set the new queue to empty
-    public static void listOfDepths(TreeNode node) { // method of TreeNode object
+    private static void listOfDepths(TreeNode node) { // method of TreeNode object
         // ArrayList of LinkedLists to keep track of nodes at each depth
 
         // Given the structure of the TreeNode class
@@ -103,12 +105,12 @@ public class TreeNode {
     }
 
 
-    public static TreeNode createMinHeightTree(int[] arr) {
+    private static TreeNode createMinHeightTree(int[] arr) {
         // try recursively splitting the array by halves and inserting the "midpoint" into tree
         ArrayList<Integer> treeOrder = new ArrayList<Integer>();
 
         class HelperFunction {
-            public void splitArray(int[] arr) {
+            private void splitArray(int[] arr) {
                 // get mid point of array every time we split it in half
                 if(arr.length == 1) { // add only element to TreeNode
                     treeOrder.add(arr[0]);
@@ -139,6 +141,25 @@ public class TreeNode {
     }
 
 
+
+    private static boolean isBalancedTree = true;
+    private static int maxDepth(TreeNode node) {
+        if(node == null) return 0;
+
+        int leftHeight = maxDepth(node.left);
+        int rightHeight = maxDepth(node.right);
+
+        if(Math.abs(leftHeight - rightHeight) > 1) isBalancedTree = false;
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+    private static boolean isBalanced(TreeNode root) {
+        maxDepth(root);
+        // System.out.println(isBalancedTree);
+        return isBalancedTree;
+    }
+
+
     // ****************************************************************************************** //
     // MAIN METHOD
     public static void main(String[] args) {
@@ -165,6 +186,8 @@ public class TreeNode {
         int[] nodeArr = IntStream.range(1, 102).toArray();
         TreeNode smallTree = createMinHeightTree(nodeArr);
         listOfDepths(smallTree);
+
+        System.out.println(isBalanced(root));
     }
 
 }
