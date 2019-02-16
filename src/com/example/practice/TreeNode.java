@@ -103,12 +103,11 @@ public class TreeNode {
             System.out.println();
         }
     }
+    
+    public static TreeNode createMinHeightTree(int[] arr) {
+        ArrayList<Integer> treeOrder = new ArrayList<Integer>(); // array to keep track of Nodes to insert in order
 
-
-    private static TreeNode createMinHeightTree(int[] arr) {
-        // try recursively splitting the array by halves and inserting the "midpoint" into tree
-        ArrayList<Integer> treeOrder = new ArrayList<Integer>();
-
+        // recursively splitting the array by halves and inserting the "midpoint" into tree
         class HelperFunction {
             private void splitArray(int[] arr) {
                 // get mid point of array every time we split it in half
@@ -136,7 +135,6 @@ public class TreeNode {
         for(int i = 1; i < treeOrder.size(); i++) {
             minTree.insertInOrder(treeOrder.get(i));
         }
-
         return minTree;
     }
 
@@ -184,6 +182,9 @@ public class TreeNode {
         listOfDepths(root);
 
         int[] nodeArr = IntStream.range(1, 102).toArray();
+        System.out.println();
+        System.out.println("Minimum Height Tree:");
+        System.out.println(Arrays.toString(nodeArr));
         TreeNode smallTree = createMinHeightTree(nodeArr);
         listOfDepths(smallTree);
 
