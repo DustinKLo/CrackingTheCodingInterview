@@ -1,5 +1,6 @@
 package com.example.practice;
 
+import javafx.util.Pair;
 import jdk.nashorn.api.tree.Tree;
 
 import java.util.ArrayList;
@@ -103,7 +104,7 @@ public class TreeNode {
             System.out.println();
         }
     }
-    
+
     public static TreeNode createMinHeightTree(int[] arr) {
         ArrayList<Integer> treeOrder = new ArrayList<Integer>(); // array to keep track of Nodes to insert in order
 
@@ -158,6 +159,55 @@ public class TreeNode {
     }
 
 
+    private static boolean isValidBinaryTree = true;
+    private static Double[] traverseValid(TreeNode node, String direction) {
+        if (node == null)
+            return new Double[] { Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY };
+
+        // post-order
+        Double[] left = traverseValid(node.left, "left");
+        Double[] right = traverseValid(node.right, "right");
+
+        String leftData = node.left != null ? String.valueOf(node.left.data) : "null";
+        String rightData = node.right != null ? String.valueOf(node.right.data) : "null";
+
+        System.out.println("Previous Direction: " + direction + "\t Current Node: " + node.data + "\t left: " + leftData + "\t right: " + rightData);
+        Double leftMax = left[0];
+        Double rightMin = right[1];
+        System.out.println("Before transformation: \t data: " + node.data + "\t leftMax: " + leftMax + "\t rightMin: " + rightMin);
+
+        if((double) node.data < leftMax || (double) node.data > rightMin) {
+            System.out.println("Tree is not valid");
+            isValidBinaryTree = false;
+        }
+
+        if(direction.equals("right"))
+            rightMin = Math.min((double) node.data, rightMin);
+        else
+            leftMax = Math.max((double) node.data, leftMax);
+
+        System.out.println("After transformation: \t data: " + node.data + "\t leftMax: " + leftMax + "\t rightMin: " + rightMin);
+        System.out.println();
+
+        // PROBLEM HERE (I THINK)
+        return new Double[] {leftMax, rightMin};
+    };
+
+    private static boolean validate(TreeNode node) {
+        traverseValid(node, "");
+//        if(node.left != null) {
+//            TreeNode left = node.left;
+//            traverseValid(left, "left");
+//        }
+//        if(node.right != null) {
+//            TreeNode right = node.right;
+//            traverseValid(right, "right");
+//        }
+        System.out.println(isValidBinaryTree);
+        return isValidBinaryTree;
+    }
+
+
     // ****************************************************************************************** //
     // MAIN METHOD
     public static void main(String[] args) {
@@ -188,7 +238,21 @@ public class TreeNode {
         TreeNode smallTree = createMinHeightTree(nodeArr);
         listOfDepths(smallTree);
 
-        System.out.println(isBalanced(root));
+        TreeNode root2 = new TreeNode(10);
+        root2.insertInOrder(5);
+        root2.insertInOrder(15);
+        root2.insertInOrder(2);
+        root2.insertInOrder(7);
+        root2.insertInOrder(6);
+        root2.insertInOrder(1);
+        root2.insertInOrder(3);
+        root2.insertInOrder(4);
+        root2.insertInOrder(13);
+        root2.insertInOrder(17);
+        root2.insertInOrder(16);
+        root2.insertInOrder(30);
+        listOfDepths(root2);
+        validate(root2);
     }
 
 }
