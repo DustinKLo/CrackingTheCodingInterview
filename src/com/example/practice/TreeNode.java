@@ -1,8 +1,5 @@
 package com.example.practice;
 
-import javafx.util.Pair;
-import jdk.nashorn.api.tree.Tree;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.IntStream;
