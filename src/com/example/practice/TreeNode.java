@@ -177,15 +177,14 @@ public class TreeNode {
             System.out.println("Tree is not valid");
             isValidBinaryTree = false;
             return new Double[] { leftMax, rightMin };
-        } else {
-            if (direction.equals("right"))
-                rightMin = Math.min((double) node.data, rightMin);
-            else
-                leftMax = Math.max((double) node.data, leftMax);
-
-            System.out.println("After transformation: \t data: " + node.data + "\t leftMax: " + leftMax + "\t rightMin: " + rightMin + "\n");
-            return new Double[]{ leftMax, rightMin };
         }
+        if (direction.equals("right"))
+            rightMin = Math.min((double) node.data, rightMin);
+        else
+            leftMax = Math.max((double) node.data, leftMax);
+
+        System.out.println("After transformation: \t data: " + node.data + "\t leftMax: " + leftMax + "\t rightMin: " + rightMin + "\n");
+        return new Double[]{ leftMax, rightMin };
     };
 
     private static boolean validate(TreeNode node) {
