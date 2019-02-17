@@ -173,21 +173,19 @@ public class TreeNode {
         Double rightMin = right[1];
         System.out.println("Before transformation: \t data: " + node.data + "\t leftMax: " + leftMax + "\t rightMin: " + rightMin);
 
-        if((double) node.data < leftMax || (double) node.data > rightMin) {
+        if ((double) node.data < leftMax || (double) node.data > rightMin) {
             System.out.println("Tree is not valid");
             isValidBinaryTree = false;
+            return new Double[] { leftMax, rightMin };
+        } else {
+            if (direction.equals("right"))
+                rightMin = Math.min((double) node.data, rightMin);
+            else
+                leftMax = Math.max((double) node.data, leftMax);
+
+            System.out.println("After transformation: \t data: " + node.data + "\t leftMax: " + leftMax + "\t rightMin: " + rightMin + "\n");
+            return new Double[]{ leftMax, rightMin };
         }
-
-        if(direction.equals("right"))
-            rightMin = Math.min((double) node.data, rightMin);
-        else
-            leftMax = Math.max((double) node.data, leftMax);
-
-        System.out.println("After transformation: \t data: " + node.data + "\t leftMax: " + leftMax + "\t rightMin: " + rightMin);
-        System.out.println();
-
-        // PROBLEM HERE (I THINK)
-        return new Double[] {leftMax, rightMin};
     };
 
     private static boolean validate(TreeNode node) {
