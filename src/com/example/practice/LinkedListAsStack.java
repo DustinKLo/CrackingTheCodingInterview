@@ -30,18 +30,28 @@ public class LinkedListAsStack {
         }
     }
 
+    public void printLinkedList() {
+        Node cur = head;
+        while(cur != null) {
+            if(cur.next != null) {
+                String str = String.format("%2d -> ", cur.data);
+                System.out.print(str);
+            } else {
+                System.out.print(cur.data);
+            }
+            cur = cur.next;
+        }
+        // System.out.println();
+    }
+
     public static void main(String[] args) {
         LinkedListAsStack l1 = new LinkedListAsStack();
-        l1.push(1); l1.head.printNodes();
-        l1.push(2); l1.head.printNodes();
-        l1.push(3); l1.head.printNodes();
-        l1.push(4); l1.head.printNodes();
-        l1.push(5); l1.head.printNodes();
+        for (int i = 0; i <= 15; i ++) {
+            l1.push(i); l1.printLinkedList(); System.out.println();
+        }
         System.out.println();
-        l1.pop(); l1.head.printNodes();
-        l1.pop(); l1.head.printNodes();
-        l1.pop(); l1.head.printNodes();
-        l1.pop(); l1.head.printNodes();
-        l1.pop();
+        while (l1.head != null) {
+            l1.pop(); l1.printLinkedList(); System.out.println();
+        }
     }
 }
