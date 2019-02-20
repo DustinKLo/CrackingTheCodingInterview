@@ -30,7 +30,7 @@ public class LinkedListAsStack {
         }
     }
 
-    public void printLinkedList() {
+    private void printLinkedList() {
         Node cur = head;
         while(cur != null) {
             if(cur.next != null) {
